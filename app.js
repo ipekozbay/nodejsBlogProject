@@ -14,16 +14,18 @@ const handlebars = exphbs.create({
   app.set('view engine', 'handlebars');
   
 app.get('/' ,(req, res) => {
-    res.render('site2/index');
+    res.render('site/index');
 })
 
 app.get('/about' ,(req, res) => {
-    res.sendFile(path.resolve(__dirname, 'site/about.html'));
+    res.render('site/about');
 })
 
+
 app.get('/blog' ,(req, res) => {
-    res.sendFile(path.resolve(__dirname, 'site/blog.html'));
+    res.render('site/blog');
 })
+
 
 app.listen(port, hostname, () => {
     console.log(`server is running, http://${hostname}:${port}`)
