@@ -9,23 +9,30 @@ app.use(express.static('public'));
 
 const handlebars = exphbs.create({
     defaultLayout: 'main'
-  });
-  app.engine('handlebars', handlebars.engine);
-  app.set('view engine', 'handlebars');
-  
-app.get('/' ,(req, res) => {
+});
+app.engine('handlebars', handlebars.engine);
+app.set('view engine', 'handlebars');
+
+app.get('/', (req, res) => {
     res.render('site/index');
 })
 
-app.get('/about' ,(req, res) => {
+app.get('/about', (req, res) => {
     res.render('site/about');
 })
 
 
-app.get('/blog' ,(req, res) => {
+app.get('/blog', (req, res) => {
     res.render('site/blog');
 })
 
+app.get('/contact', (req, res) => {
+    res.render('site/contact')
+})
+
+app.get('/login', (req, res) => {
+    res.render('site/login')
+})
 
 app.listen(port, hostname, () => {
     console.log(`server is running, http://${hostname}:${port}`)
