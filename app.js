@@ -34,6 +34,9 @@ app.get('/login', (req, res) => {
     res.render('site/login')
 })
 
+app.get('/register', (req, res) => {
+    res.render('site/register')
+})
 app.listen(port, hostname, () => {
     console.log(`server is running, http://${hostname}:${port}`)
 })
