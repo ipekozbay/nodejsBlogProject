@@ -4,6 +4,12 @@ const exphbs = require('express-handlebars');
 const app = express();
 const port = 3000;
 const hostname = '127.0.0.1';
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://127.0.0.1:27017/test_db',{
+    useNewUrlParsel:true,
+    useUnifiedTopology:true
+})
 
 app.use(express.static('public'));
 
@@ -37,6 +43,7 @@ app.get('/login', (req, res) => {
 app.get('/register', (req, res) => {
     res.render('site/register')
 })
+
 app.listen(port, hostname, () => {
     console.log(`server is running, http://${hostname}:${port}`)
 })
