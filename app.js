@@ -17,31 +17,9 @@ const handlebars = exphbs.create({
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
-app.get('/', (req, res) => {
-    res.render('site/index');
-})
+const main = require('./routes/main')
 
-app.get('/about', (req, res) => {
-    res.render('site/about');
-})
-
-
-app.get('/blog', (req, res) => {
-    res.render('site/blog');
-})
-
-app.get('/contact', (req, res) => {
-    res.render('site/contact')
-})
-
-app.get('/login', (req, res) => {
-    res.render('site/login')
-})
-
-app.get('/register', (req, res) => {
-    res.render('site/register')
-})
-
+app.use('/',main)
 app.listen(port, hostname, () => {
     console.log(`server is running, http://${hostname}:${port}`)
 })
