@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-
 router.get('/', (req, res) => {
     res.render('site/index');
 })
@@ -26,11 +25,5 @@ router.get('/register', (req, res) => {
     res.render('site/register');
 })
 
-router.get('/post/new', (req, res) => {
-    res.render('site/addpost');
-})
 
-router.post('/post/test', (req, res) => {
-    res.redirect('/');
-})
 module.exports = router;
