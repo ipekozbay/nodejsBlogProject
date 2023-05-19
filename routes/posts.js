@@ -8,10 +8,10 @@ router.get('/new', (req, res) => {
 
 router.get('/:id', (req, res) => {
 
-    Post.findById(req.params.id).then
+    Post.findById(req.params.id).then(post => {
+        res.render('site/post', { post: post });
 
-    console.log(req.params);
-    res.render('site/addpost');
+    })
 })
 
 router.post('/test', (req, res) => {
