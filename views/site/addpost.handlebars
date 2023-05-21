@@ -21,7 +21,7 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <form action="/post/test" method="POST">
+                <form action="/post/test" method="POST" enctype="multipart/form-data">
                     <div class="row">
                         <div class="offset-2 col-md-8">
                             <div class="form-group">
@@ -34,6 +34,11 @@
                                     required="required"
                                     data-validation-required-message="Please enter a message."></textarea>
                                 <p class="help-block text-danger"></p>
+                                <div class="form-group">
+                                    <input class="form-control" name="post_image" type="file" required="required"
+                                        data-validation-required-message="Please enter your username.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
                             </div>
                         </div>
 

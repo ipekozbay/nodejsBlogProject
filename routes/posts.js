@@ -16,6 +16,7 @@ router.get('/:id', (req, res) => {
 
 router.post('/test', (req, res) => {
     Post.create(req.body);
+    console.log(req.files.post_image.name);
     res.redirect('/');
 })
 

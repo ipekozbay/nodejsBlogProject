@@ -5,9 +5,13 @@ const port = 3000;
 const hostname = '127.0.0.1';
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const fileUpload = require('express-fileupload');
 
 mongoose.connect('mongodb://127.0.0.1:27017/test_db')
   .then(() => console.log('Connected!'));
+
+
+app.use(fileUpload());  
 
 app.use(express.static('public'));
 
