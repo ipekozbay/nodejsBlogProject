@@ -12,7 +12,7 @@ router.get('/about', (req, res) => {
 
 router.get('/blog', (req, res) => {
     Post.find({}).then(posts => {
-        res.render('site/blog',{posts:posts});
+        res.render('site/blog', { posts: posts });
     })
 })
 
