@@ -6,7 +6,7 @@ const hostname = '127.0.0.1';
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const fileUpload = require('express-fileupload');
-const moment = require('moment');
+const generateDate = require('./helpers/generateDate').generateDate;
 
 mongoose.connect('mongodb://127.0.0.1:27017/test_db')
   .then(() => console.log('Connected!'));
@@ -16,18 +16,12 @@ app.use(fileUpload());
 
 app.use(express.static('public'));
 
-const hbs = exphbs.create({
-  helpers:{
-    generateDate : (date, format) =>{
-      return moment(date).format(format);
-    }
-  }
-})
+
 
 const handlebars = exphbs.create({
   defaultLayout: 'main'
 });
-app.engine('handlebars', hbs.engine);
+app.engine('handlebars', exphbs({helpers:{generateDate}}));
 app.set('view engine', 'handlebars');
 
 app.use(bodyParser.urlencoded({ extended: false }));
